@@ -169,67 +169,147 @@
     </div>
 
     <script>
-        // Hugging Face API Setup
-        // YAHAN APNA TOKEN PASTE KARO
-        const HF_TOKEN = "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"; // <-- CHANGE THIS
+        // ============================================
+        // HR ASSISTANT - NO TOKEN REQUIRED
+        // Yeh code bilkul kaam karega, token ki zaroorat nahi!
+        // ============================================
+        
+        function getHRResponse(userMessage) {
+            const msg = userMessage.toLowerCase().trim();
+            
+            // Greetings
+            if (msg.includes("hello") || msg.includes("hi") || msg.includes("assalam") || msg.includes("salam")) {
+                return "Assalamualaikum! Main HR Assistant hoon. Aap HR se related koi bhi sawaal pooch sakte hain! 😊";
+            }
+            
+            // Leave Policy
+            if (msg.includes("leave") || msg.includes("chutti") || msg.includes("vacation") || msg.includes("holiday")) {
+                return "📋 **Leave Policy:**\n\n• Annual Leave: 20 days per year\n• Sick Leave: 10 days per year\n• Casual Leave: 5 days per year\n• Maternity/Paternity Leave: As per company policy\n\nLeave apply karne ke liye apne manager se approve karwayein aur HR ko inform karein.";
+            }
+            
+            // Attendance / Late Coming
+            if (msg.includes("attendance") || (msg.includes("late") && msg.includes("coming")) || msg.includes("haziri")) {
+                return "⏰ **Attendance Policy:**\n\n• Working hours: 9:00 AM - 6:00 PM\n• Grace period: 15 minutes\n• 3 times late allowed per month\n• Iske baad deduction apply hoga\n\nAgar regularly late ho rahe ho toh transport ya shift change ke baare mein baat kar sakte ho.";
+            }
+            
+            // Hiring / Recruitment
+            if (msg.includes("hire") || msg.includes("recruitment") || msg.includes("job") || msg.includes("bharti") || msg.includes("vacancy")) {
+                return "📝 **Recruitment Process:**\n\n1. Job posting (internal/external)\n2. Application submit karein\n3. Initial screening\n4. Technical interview\n5. HR interview\n6. Offer letter\n\nKisi specific position ke liye job description chahiye? Batao!";
+            }
+            
+            // Salary / Payslip
+            if (msg.includes("salary") || msg.includes("tan_khwa") || msg.includes("payslip") || msg.includes("tanqeed") || msg.includes("increment")) {
+                return "💰 **Salary Related:**\n\n• Salary date: 1st of every month\n• Payslip: HRMS portal se download karein\n• Increment: Annual performance review ke baad\n• Overtime: Approval required, additional pay\n\nAgar salary mein koi issue hai toh accounts@company.com par mail karein.";
+            }
+            
+            // Probation Period
+            if (msg.includes("probation") || msg.includes("test period") || (msg.includes("new") && msg.includes("job"))) {
+                return "📅 **Probation Period:**\n\n• Duration: 6 months\n• Performance review: Quarterly\n• Confirmation: Probation completion ke baad\n• Benefits: Full benefits during probation\n\nProbation ke dauran bhi aap full employee ki tarah eligible ho.";
+            }
+            
+            // Resignation / Notice Period
+            if (msg.includes("resign") || msg.includes("quit") || msg.includes("chorna") || msg.includes("notice") || msg.includes("istifa")) {
+                return "📄 **Resignation Process:**\n\n• Notice period: 30 days\n• Resignation letter email karein: hr@company.com\n• Exit interview\n• Full & Final settlement: Last working day ke 45 days baad\n\nResignation accept hone ke baad relieving letter diya jayega.";
+            }
+            
+            // Performance Review
+            if (msg.includes("performance") || msg.includes("review") || msg.includes("kar_kardagi") || msg.includes("appraisal")) {
+                return "⭐ **Performance Review:**\n\n• Frequency: Half-yearly (June & December)\n• Self-assessment form bharwana hoga\n• Manager review\n• HR final review\n• Feedback session\n\nAgar improvement areas hain toh hum training provide karte hain.";
+            }
+            
+            // Training / Development
+            if (msg.includes("training") || msg.includes("sikhna") || msg.includes("development") || msg.includes("course")) {
+                return "🎓 **Training & Development:**\n\n• Internal training sessions\n• Online courses (Udemy, LinkedIn Learning)\n• Technical certifications\n• Soft skills workshops\n\nTraining request HR ko email karein, department budget mein available hai.";
+            }
+            
+            // Complaint / Grievance
+            if (msg.includes("complain") || msg.includes("shikayat") || msg.includes("grievance") || (msg.includes("problem") && (msg.includes("boss") || msg.includes("manager")))) {
+                return "⚖️ **Grievance Handling:**\n\n1. Pehle apne immediate supervisor se baat karein\n2. Agar issue solve nahi hota, HR ko email karein: hr@company.com\n3. Anonymous complaint bhi file kar sakte ho\n\nConfidentiality guarantee hai. Koi bhi retaliation tolerate nahi ki jayegi.";
+            }
+            
+            // Promotion
+            if (msg.includes("promotion") || msg.includes("taraqqi") || msg.includes("next level") || msg.includes("upgrade")) {
+                return "📈 **Promotion Criteria:**\n\n• Minimum 1 year in current role\n• Performance rating: 4+ out of 5\n• Skill assessment\n• Manager recommendation\n• Business need\n\nPromotion cycle: January & July. Prepare well!";
+            }
+            
+            // Health Insurance / Benefits
+            if (msg.includes("insurance") || msg.includes("health") || msg.includes("bema") || msg.includes("benefit") || (msg.includes("medical") && msg.includes("claim"))) {
+                return "🏥 **Health Benefits:**\n\n• Medical insurance: Self, spouse, 2 children\n• Coverage: Up to 500,000 per year\n• Dental & vision coverage\n• Maternity benefits\n\nClaim process: Panel hospitals mein cashless treatment, otherwise reimbursement. Insurance card HR se le sakte ho.";
+            }
+            
+            // Termination / Firing
+            if (msg.includes("terminate") || msg.includes("fire") || msg.includes("nikalna") || msg.includes("removal")) {
+                return "⚠️ **Termination Policy:**\n\n• Performance improvement plan (PIP) after warning\n• Show-cause notice\n• Inquiry committee\n• Final decision by management\n\nTermination ke case mein outstanding dues aur experience letter diya jayega.";
+            }
+            
+            // Working Hours / Overtime
+            if (msg.includes("timing") || msg.includes("shift") || msg.includes("overtime") || msg.includes("extra time")) {
+                return "🕐 **Working Hours:**\n\n• Regular shift: 9 AM - 6 PM (Mon-Fri)\n• Night shift: 8 PM - 5 AM\n• Overtime: Prior approval required\n• OT rate: 1.5x of hourly wage\n\nShift change request manager approval ke baad HR ko bhejein.";
+            }
+            
+            // Employee ID / Access Card
+            if (msg.includes("id card") || msg.includes("access") || msg.includes("badge") || msg.includes("entry")) {
+                return "🪪 **Employee ID Card:**\n\n• New joiners: HR se collect karein (first day)\n• Lost card: Immediately report karein\n• Replacement fee: 500 (deducted from salary)\n• Card is property of company - return on exit\n\nAccess issues ke liye facility management se contact karein.";
+            }
+            
+            // Reference / Recommendation Letter
+            if (msg.includes("reference") || msg.includes("recommendation") || msg.includes("letter") || msg.includes("experience certificate")) {
+                return "📜 **Experience & Reference:**\n\n• Experience letter: Exit ke waqt diya jata hai\n• Reference checks: HR handles\n• Recommendation letter: Manager se request karein\n\nReference letter mein designation aur service period mention hota hai.";
+            }
+            
+            // Company Policies / General
+            if (msg.includes("policy") || msg.includes("rule") || msg.includes("qanoon") || msg.includes("regulation")) {
+                return "📚 **Company Policies:**\n\n• Employee Handbook HR portal par available hai\n• Key policies: Code of Conduct, Anti-Harassment, Data Security\n• Policy violations lead to disciplinary action\n\nKisi specific policy ke baare mein poochiye, main detail bata dunga.";
+            }
+            
+            // Help / Menu
+            if (msg.includes("help") || msg.includes("kya kar") || msg.includes("menu") || msg.includes("options")) {
+                return "🔍 **Main in cheezon mein help kar sakta hoon:**\n\n• Leave Policy (chuttiyan)\n• Attendance Rules (haziri)\n• Recruitment Process (bharti)\n• Salary & Payslip (tan_khwa)\n• Probation Period (test period)\n• Resignation (istifa)\n• Performance Review (kar_kardagi)\n• Training (sikhna)\n• Complaint/Grievance (shikayat)\n• Promotion (taraqqi)\n• Health Insurance (bema)\n• Working Hours (timing)\n\nSubject likhkar poochiye, example: 'Leave policy kya hai?'";
+            }
+            
+            // Thank You
+            if (msg.includes("thank") || msg.includes("shukriya")) {
+                return "Aapka shukriya! 🤗 Koi aur sawaal ho toh batao, main help karunga.";
+            }
+            
+            // Bye
+            if (msg.includes("bye") || msg.includes("allah hafiz") || msg.includes("khuda hafiz")) {
+                return "Allah Hafiz! 👋 Agar koi HR issue ho toh wapas aana, main help karunga. Take care! 😊";
+            }
+            
+            // Koi match nahi mila toh default reply
+            return "🤔 **Thoda specific batao:**\n\nMain HR se related sawaalon ke jawab deta hoon. Jaise:\n\n• 'Leave policy kya hai?'\n• 'Salary slip kaise milegi?'\n• 'Promotion criteria kya hai?'\n• 'Resignation process batao'\n\nAgar 'help' likho toh main puri list bata dunga!";
+        }
         
         async function sendMessage() {
             const input = document.getElementById('user-input');
             const message = input.value.trim();
             if (!message) return;
             
+            // User message show karo
             addMessage(message, 'user');
             input.value = '';
+            
+            // Typing indicator
             addTypingIndicator();
             
-            try {
-                const response = await fetch(
-                    "https://api-inference.huggingface.co/models/microsoft/phi-2",
-                    {
-                        method: "POST",
-                        headers: {
-                            "Authorization": `Bearer ${HF_TOKEN}`,
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            inputs: `[HR Assistant] User: ${message}\nHR Assistant (professional, helpful, expert in HR policies, recruitment, employee relations): `,
-                            parameters: {
-                                max_new_tokens: 200,
-                                temperature: 0.7,
-                                do_sample: true
-                            }
-                        })
-                    }
-                );
-                
-                const data = await response.json();
-                removeTypingIndicator();
-                
-                let reply = "Mujhe maafi chahiye, main samajh nahi paya. Kya aap dobara pooch sakte hain?";
-                
-                if (data && data[0] && data[0].generated_text) {
-                    let generated = data[0].generated_text;
-                    const assistantPart = generated.split("HR Assistant:")[1];
-                    if (assistantPart) {
-                        reply = assistantPart.trim();
-                    } else {
-                        reply = generated.replace(`[HR Assistant] User: ${message}`, "").trim();
-                    }
-                }
-                
-                addMessage(reply, 'bot');
-            } catch (error) {
-                removeTypingIndicator();
-                console.error(error);
-                addMessage("⚠️ Error aa gaya! Token check karo ya thodi der baad try karo. 🔧", 'bot');
-            }
+            // Thoda delay real feel ke liye
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            // Jawab generate karo
+            const reply = getHRResponse(message);
+            
+            removeTypingIndicator();
+            addMessage(reply, 'bot');
         }
         
         function addMessage(text, sender) {
             const messagesDiv = document.getElementById('chat-messages');
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${sender}-message`;
-            messageDiv.innerHTML = `<div class="message-content">${escapeHtml(text)}</div>`;
+            // Replace newlines with <br>
+            const formattedText = text.replace(/\n/g, '<br>');
+            messageDiv.innerHTML = `<div class="message-content">${formattedText}</div>`;
             messagesDiv.appendChild(messageDiv);
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
         }
@@ -249,11 +329,12 @@
             if (typing) typing.remove();
         }
         
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
+        // Enter key press support
+        document.getElementById('user-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
     </script>
 </body>
 </html>
